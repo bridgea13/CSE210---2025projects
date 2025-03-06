@@ -8,13 +8,13 @@ class Program
         bool running = true;
 
         BreathingPick breathingPick = new BreathingPick();
-        //ListingPick listingPick = new ListingPick();
+        ListingPick listingPick = new ListingPick();
         //ReflectingPick reflectingPick = new ReflectingPick();
-        //MovementPick movementPick = new MovementPick();
+        MovementPick movementPick = new MovementPick();
 
         while (running)
         {
-            Console.WriteLine("Welcome! We are here to help you be more mindful.");
+            Console.WriteLine("\nWelcome! We are here to help you be more mindful.");
             Thread.Sleep(1000);
             Console.WriteLine("\nPick an activity from the following options below: ");
             Console.WriteLine("1. Breathing");
@@ -36,7 +36,7 @@ class Program
                     break;
                 case "2":
                     Console.WriteLine("Great! Let's do a listing activity...");
-                    //listingPick.Pick2();
+                    listingPick.Pick2();
                     break;
                 case "3":
                     Console.WriteLine("Great! Let's do a reflecting activity...");
@@ -44,7 +44,7 @@ class Program
                     break;
                 case "4":
                     Console.WriteLine("Great! Let's do a movement activity...");
-                    //movementPick.Pick4();
+                    movementPick.Pick4();
                     break;
                 case "5":
                     Console.WriteLine("Thank you for being mindful.");
@@ -53,17 +53,15 @@ class Program
                     break;
             }
 
-            List<string> animationStrings =
-            [
-                "|",
-                "/",
-                "-",
-                "\\",
-                "|",
-                "/",
-                "-",
-                "\\",
-            ];
+            List<string> animationStrings = new List<string>();
+            animationStrings.Add("|");
+            animationStrings.Add("/");
+            animationStrings.Add("-");
+            animationStrings.Add("\\");
+            animationStrings.Add("|");
+            animationStrings.Add("/");
+            animationStrings.Add("-");
+            animationStrings.Add("\\");
 
             foreach (string s in animationStrings)
             {
@@ -72,14 +70,14 @@ class Program
                 Console.Write("\b \b");
             }
 
-            DateTime startTime = DateTime.Now;
-            DateTime endTime = startTime.AddSeconds(10);
+            // DateTime startTime = DateTime.Now;
+            // DateTime endTime = startTime.AddSeconds(10);
 
-            while (DateTime.Now < endTime)
-            {
-                Console.Write(".");
-                Thread.Sleep(1000);
-            }
+            // while (DateTime.Now < endTime)
+            // {
+            //     Console.WriteLine(s);
+            //     Thread.Sleep(1000);
+            // }
 
             Console.WriteLine("Done.");
         }

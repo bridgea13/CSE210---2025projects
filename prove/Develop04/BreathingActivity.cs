@@ -43,7 +43,7 @@ class BreathingPick
             
             }
 
-            Console.WriteLine("Done.");
+            
             Thread.Sleep(2000);
         } else {
             Console.WriteLine("The amount of time in seconds is not valid, please try again.");
