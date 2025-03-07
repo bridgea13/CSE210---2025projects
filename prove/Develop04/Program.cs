@@ -7,11 +7,7 @@ class Program
     {
         bool running = true;
 
-        BreathingPick breathingPick = new BreathingPick();
-        ListingPick listingPick = new ListingPick();
-        //ReflectingPick reflectingPick = new ReflectingPick();
-        MovementPick movementPick = new MovementPick();
-
+      
         while (running)
         {
             Console.WriteLine("\nWelcome! We are here to help you be more mindful.");
@@ -32,19 +28,26 @@ class Program
             {
                 case "1":
                     Console.WriteLine("Great! Let's do a breathing activity...");
-                    breathingPick.Pick1();
+                    Thread.Sleep(2000);
+                    BreathingActivity breath = new BreathingActivity("Breath", "This is a breathing exercise.");
+                    breath.WelcomeMessage();
+                    breath.RunBreathing();
                     break;
                 case "2":
                     Console.WriteLine("Great! Let's do a listing activity...");
-                    listingPick.Pick2();
+                    ListingActivity list = new ListingActivity("List", "This is a listing exercise.");
+                    list.WelcomeMessage();
+                    list.RunListening();
                     break;
                 case "3":
                     Console.WriteLine("Great! Let's do a reflecting activity...");
-                    //reflectingPick.Pick3();
+                    ReflectingActivity reflect = new ReflectingActivity("Reflect", "This is a reflecting exercise.");
+                    reflect.WelcomeMessage();
+                    reflect.RunReflecting();
                     break;
                 case "4":
                     Console.WriteLine("Great! Let's do a movement activity...");
-                    movementPick.Pick4();
+                    MovementActivity move = new MovementActivity("Move", "This is a movement exercise");                    
                     break;
                 case "5":
                     Console.WriteLine("Thank you for being mindful.");
@@ -53,22 +56,7 @@ class Program
                     break;
             }
 
-            List<string> animationStrings = new List<string>();
-            animationStrings.Add("|");
-            animationStrings.Add("/");
-            animationStrings.Add("-");
-            animationStrings.Add("\\");
-            animationStrings.Add("|");
-            animationStrings.Add("/");
-            animationStrings.Add("-");
-            animationStrings.Add("\\");
-
-            foreach (string s in animationStrings)
-            {
-                Console.Write(s);
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-            }
+           
 
             // DateTime startTime = DateTime.Now;
             // DateTime endTime = startTime.AddSeconds(10);

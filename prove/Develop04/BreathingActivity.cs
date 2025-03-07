@@ -1,17 +1,23 @@
-class BreathingPick
-{
-    public void Pick1()
-    {
-        Console.WriteLine("This activity is great for relaxation. You can choose for how long to participate in some breathing exercises. Just follow along and we will tell you what to do.");
-        Thread.Sleep(3000);
-        Console.WriteLine("Enter the amount of time in seconds that you would like to participate: ");
+using System.Diagnostics;
 
-        if (int.TryParse(Console.ReadLine(), out int duration))
+class BreathingActivity : Activity 
+{
+    public BreathingActivity(string activityName, string activityDescription) : base(activityName, activityDescription)
+    {
+       
+    }
+    
+    public void RunBreathing()
+    {
+        int duration = GetDuration();
+        
+
+        if (duration > 0)
         {
             int passingTime = 0;
-            Console.WriteLine("Let's begin.");
-            Thread.Sleep(1000);
-            Console.WriteLine($"Starting countdown...");
+            
+            Console.WriteLine("Starting countdown...");
+            
 
             while (passingTime < duration)
             {

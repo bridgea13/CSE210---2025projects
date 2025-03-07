@@ -1,25 +1,38 @@
-class ListingPick
+class ListingActivity : Activity
 {
-    public void Pick2()
-    {
-        Console.WriteLine("This activity is great for gratitude. You can choose for how long to participate in some thoughtful exercises. Just follow along and we will tell you what to do.");
-        Thread.Sleep(3000);
-        Console.WriteLine("Enter the amount of time in seconds that you would like to participate: ");
+    
 
-        if (int.TryParse(Console.ReadLine(), out int duration))
+    public ListingActivity(string activityName, string activityDescription) : base(activityName, activityDescription)
+    {
+       
+    }
+    public void RunListening()
+    {
+        List<string> prompts = new List<string>();
+        prompts.Add("Who are people that you appreciate?");
+        prompts.Add("What are your personal strengths?");
+        prompts.Add("Who are people you have helped this week?");
+        prompts.Add("How have you felt the Holy Ghost this month?");
+        prompts.Add("Who are your heroes?");
+        
+        int duration = GetDuration();
+        if (duration > 0)
         {
             int passingTime = 0;
             Console.WriteLine("Grab something to write with. First, you will be presented with a question.");
-            Thread.Sleep(1000);
-            Console.WriteLine("You will have 10 seconds to think of some answers, then when prompted, start writing down as many answers to that question as you can.");
-            Thread.Sleep(1000);
-            Console.WriteLine($"Let's begin.");
+            Thread.Sleep(5000);
+            Console.WriteLine("When prompted, start writing down as many answers to that question as you can.");
+            Thread.Sleep(5000);
+            Random random = new Random();
+            int index = random.Next(prompts.Count);
+            Console.WriteLine(prompts[index]);
 
             while (passingTime < duration)
             {
                 if (passingTime + 5 <= duration)
                 {
-                    Console.WriteLine("Big breath in...");
+                    Console.WriteLine("Think about it...");
+                    Thread.Sleep(5000);
                     for (int i =5; i > 0; i--)
                     {
                         Console.WriteLine(i);
@@ -32,7 +45,7 @@ class ListingPick
 
                 if (passingTime + 5 <= duration)
                 {
-                    Console.WriteLine("Now breath out...");
+                    Console.WriteLine("Now write!");
                     for (int i =5; i > 0; i--)
                     {
                         Console.WriteLine(i);
