@@ -31,7 +31,7 @@ class ListingActivity : Activity
             {
                 if (passingTime + 5 <= duration)
                 {
-                    Console.WriteLine("Think about it...");
+                    Console.WriteLine("Think.");
                     Thread.Sleep(5000);
                     for (int i =5; i > 0; i--)
                     {

@@ -15,9 +15,7 @@ class BreathingActivity : Activity
         if (duration > 0)
         {
             int passingTime = 0;
-            
-            Console.WriteLine("Starting countdown...");
-            
+                
 
             while (passingTime < duration)
             {

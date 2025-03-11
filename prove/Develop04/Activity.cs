@@ -13,8 +13,9 @@ class Activity
     
     public void WelcomeMessage()
     {
-        Console.WriteLine("This will be great for relaxation. You can choose for how long to participate in this " + _activityName +  " . Just follow along and we will tell you what to do.");
-        Console.WriteLine(_activityName);
+        Console.WriteLine("This will be great for mindfulness.");
+        Thread.Sleep(1000);
+        Console.WriteLine("You can choose for how long to participate. Just follow along and we will tell you what to do.");
         SetDuration();
         Console.WriteLine("Get Ready!");
         Thread.Sleep(1000);
@@ -28,7 +29,6 @@ class Activity
         
     }
     protected int GetDuration(){
-        Console.WriteLine(_duration);
         return _duration; 
     }
     private void RunAnimation()
@@ -49,6 +49,14 @@ class Activity
                 Thread.Sleep(1000);
                 Console.Write("\b \b");
             }    
+    }
+
+    public void EndMessage()
+    {
+        Console.WriteLine("You did a great job.");
+        Thread.Sleep(2000);
+        Console.WriteLine($"You completed {_duration} seconds of the {_activityName} activity and are now finished.");
+        Thread.Sleep(2000);
     }
 
 }

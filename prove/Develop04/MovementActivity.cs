@@ -23,7 +23,7 @@ class MovementActivity : Activity
             {
                 if (passingTime + 10 <= duration)
                 {
-                    Console.WriteLine("Hold that pose for and take in some deep breaths.");
+                    Console.WriteLine("Hold that pose and take in some deep breaths.");
                     for (int i = 10; i > 0; i--)
                     {
                         Console.WriteLine(i);

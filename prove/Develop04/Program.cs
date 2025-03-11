@@ -5,13 +5,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        bool running = true;
 
-      
+        
+        bool running = true;
+     
         while (running)
         {
             Console.WriteLine("\nWelcome! We are here to help you be more mindful.");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             Console.WriteLine("\nPick an activity from the following options below: ");
             Console.WriteLine("1. Breathing");
             Console.WriteLine("2. Listing");
@@ -32,22 +33,28 @@ class Program
                     BreathingActivity breath = new BreathingActivity("Breath", "This is a breathing exercise.");
                     breath.WelcomeMessage();
                     breath.RunBreathing();
+                    breath.EndMessage();
                     break;
                 case "2":
                     Console.WriteLine("Great! Let's do a listing activity...");
                     ListingActivity list = new ListingActivity("List", "This is a listing exercise.");
                     list.WelcomeMessage();
                     list.RunListening();
+                    list.EndMessage();
                     break;
                 case "3":
                     Console.WriteLine("Great! Let's do a reflecting activity...");
                     ReflectingActivity reflect = new ReflectingActivity("Reflect", "This is a reflecting exercise.");
                     reflect.WelcomeMessage();
                     reflect.RunReflecting();
+                    reflect.EndMessage();
                     break;
                 case "4":
                     Console.WriteLine("Great! Let's do a movement activity...");
-                    MovementActivity move = new MovementActivity("Move", "This is a movement exercise");                    
+                    MovementActivity move = new MovementActivity("Move", "This is a movement exercise"); 
+                    move.WelcomeMessage();
+                    move.RunMovement();
+                    move.EndMessage();                   
                     break;
                 case "5":
                     Console.WriteLine("Thank you for being mindful.");
@@ -67,7 +74,7 @@ class Program
             //     Thread.Sleep(1000);
             // }
 
-            Console.WriteLine("Done.");
+           
         }
     }
 }
