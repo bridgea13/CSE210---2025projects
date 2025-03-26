@@ -11,9 +11,9 @@ public class Order
         _products = new List<Product>();
         _customer = new Customer(customerName, streetAddress, city, state, country);
     }
-    public void AddProducts(string productName, int productID, int pricePerUnit, int quantitiy)
+    public void AddProducts(string productName, int productID, int pricePerUnit, int quantity)
     {
-        Product item = new Product(productName, productID, pricePerUnit, quantitiy);
+        Product item = new Product(productName, productID, pricePerUnit, quantity);
         _products.Add(item);
     }
     public int TotalCost()

@@ -14,7 +14,7 @@ public class Address
         _country = country;
 
     }
-    public string AdressString()
+    public string AddressString()
     {
         string label = _streetAddress + "\n"+ _city + ", "+ _state + "\n" + _country;
         return label;

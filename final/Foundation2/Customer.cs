@@ -7,7 +7,7 @@ public class Customer
     {
         _customerName = customerName;
         _address = new Address(streetAddress, city, state, country);
-        _customerAddress = _address.AdressString();
+        _customerAddress = _address.AddressString();
     }
     public string GetShippingLabel(){
         string shipLabel = _customerName + "\n"+ _customerAddress;
