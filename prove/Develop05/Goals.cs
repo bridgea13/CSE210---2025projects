@@ -3,7 +3,7 @@ public class Goals
     private string _goalName;
     private string _goalDescrip;
     private int _goalPoints;
-    private bool _complete;
+    protected bool _complete;
 
     private string _goalType;
 
@@ -48,6 +48,9 @@ public class Goals
     }
     public virtual string SetGoalType(){
         return  "Goal";
+    }
+    public virtual int GetTotalTimes(){
+        return 0;
     }
     public string GetGoalType(){
         return _goalType;

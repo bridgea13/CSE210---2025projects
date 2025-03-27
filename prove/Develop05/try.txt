@@ -1,0 +1,6 @@
+1,eat,eat breakfast,Simple,True,100
+2,pray,say prayers daily,Eternal,False,200
+3,walk,walk daily,Checklist,True,8,300,7,1000
+4,eat,eat breakfast,Simple,False,100
+5,pray,say prayers daily,Eternal,False,200
+6,walk,walk daily,Checklist,False,0,0,300,1000

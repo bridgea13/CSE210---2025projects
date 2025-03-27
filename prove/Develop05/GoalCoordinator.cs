@@ -103,27 +103,73 @@ public class GoalCoordinator
         string name = _goals[goalNum].GetGoalName();
         string descrip = _goals[goalNum].GetDescrip();
         string type = _goals[goalNum].GetGoalType();
-        goalNum = goalNum + 1;
-        //add completion to the list
+        bool complete = _goals[goalNum].GetComplete();
+        
+
         //add header
         if (type == "Checklist")
         {
-            int complete = _goals[goalNum].GetNumComplete();
-            return goalNum + " " + name + " " + descrip + " " + type + " " + complete;
+            int numComplete = _goals[goalNum].GetNumComplete();
+            goalNum = goalNum + 1;
+            return goalNum + "," + name + "," + descrip + "," + type + "," + complete + "," + numComplete;
         }
         else
         {
-            return goalNum + " " + name + " " + descrip + " " + type;
+            goalNum = goalNum + 1;
+            return goalNum + "," + name + "," + descrip + "," + type + "," + complete;
         }
     }
 
     public void SaveGoals(string filename)
     {
-        File.WriteAllText(filename, _goals.ToString());
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            for (int i = 0; i < _goals.Count; i++)
+            {
+                string line =GetGoalString(i);
+                line += ","+  _goals[i].GetPoints();
+                string type = _goals[i].GetGoalType();
+                if (type == "Checklist"){
+                    //i--;
+                    line += ","+ _goals[i].GetTotalTimes()+","+ _goals[i].GetBonusAmount();
+                }
+                //, points,  totalTimes, bonus
+                //goalNum + "," + name + "," + descrip + "," + type + "," + complete + "," + numComplete;
+
+                outputFile.WriteLine(line);
+            }
+        }
     }
 
     public void LoadGoal(string filename)
     {
+        string[] lines = System.IO.File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
+            string goalNum = parts[0];
+            string name = parts[1];
+            string descrip = parts[2];
+            string type = parts[3];
+            int points = int.Parse(parts[5]);
+            bool complete = bool.Parse(parts[4]);
+            if (type == "Checklist"){
+                int numComplete = int.Parse(parts[6]);
+                int totalTimes= int.Parse(parts[7]);
+                int bonus = int.Parse(parts[8]);
+                Checklist checklist = new Checklist(name, descrip, points, complete, numComplete, totalTimes, bonus);
+
+                _goals.Add(checklist);
+            }else if (type == "Simple"){
+                Simple simple = new Simple(name, descrip, points, complete);
+                _goals.Add(simple);
+            }else if (type == "Eternal"){
+                Eternal eternal = new Eternal(name, descrip, points, complete);
+                _goals.Add(eternal);
+            }
+
+
+        }
 
     }
 
