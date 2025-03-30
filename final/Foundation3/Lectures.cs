@@ -9,15 +9,12 @@ class Lectures : Event
         _capacity = capacity;
         _eventType = "Lecture";
     }
-    public override void FullDetails()
+    protected override void FullDetails()
     {
         base.StandardDetails();
         Console.WriteLine("Event Type: "+ _eventType+"\nSpeaker Name: "+ _speaker+"\nCapacity: "+ _capacity);
 
     }
-    // public override void ShortDescrip()
-    // {
-    //     Console.WriteLine("Event Type: "+_eventType+"\nTitle: "+_title+"\nDate: "+_date);
-    // }
+    
     
 }

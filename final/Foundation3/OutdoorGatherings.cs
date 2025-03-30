@@ -8,7 +8,7 @@ class OutdoorGatherings : Event
         _weatherStatement = weatherStatement;
         _eventType = "Outdoor Gathering";
     }
-    public override void FullDetails()
+    protected override void FullDetails()
     {
         base.StandardDetails();
         Console.WriteLine("Event Type: "+ _eventType+"\nWeather Statement: "+ _weatherStatement);

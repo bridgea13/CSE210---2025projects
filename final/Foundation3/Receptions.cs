@@ -6,14 +6,11 @@ class Receptions : Event
         _registerEmail = registerEmail;
         _eventType = "Reception";
     }
-    public override void FullDetails()
+    protected override void FullDetails()
     {
         base.StandardDetails();
         Console.WriteLine("Event Type: "+ _eventType+"\nRegistration Email: "+ _registerEmail);
 
     }
-    // public override void ShortDescrip()
-    // {
-    //     Console.WriteLine("Event Type: "+_eventType+"\nTitle: "+_title+"\nDate: "+_date);
-    // }
+    
 }
