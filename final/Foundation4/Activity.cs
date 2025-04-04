@@ -11,7 +11,7 @@ class Activity
     }
     public void OutputSummary()
     {
-        string output = _date + _title+" (" + _duration + ")- Distance";
+        string output = _date + _title + " (" + _duration + ")- Distance ";
         output += GetDistance();
         output += " Miles, Speed ";
         output += GetSpeed();
